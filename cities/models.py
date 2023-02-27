@@ -4,6 +4,8 @@ __all__ = [
     'City',
 ]
 
+from django.urls import reverse
+
 
 class BaseModel(models.Model):
     """
@@ -20,6 +22,9 @@ class City(BaseModel):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('cities:detail', kwargs={'pk': self.pk})
 
     class Meta:
         verbose_name = 'Город'

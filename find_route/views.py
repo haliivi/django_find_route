@@ -1,4 +1,8 @@
 from django.shortcuts import render
+__all__ = [
+    'home',
+    'about',
+]
 
 
 def home(request):
