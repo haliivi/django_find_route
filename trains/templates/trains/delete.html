@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block title %}Удаление города{% endblock title %}
+{% block content %}
+    <h1 class="text-center">Удалить город</h1>
+    <p class="text-center">{{ object }}</p>
+    {% include 'form.html' with name_btn='Удалить' %}
+{% endblock content %}
