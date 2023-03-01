@@ -1,10 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+{% extends 'base.html' %}
+{% block title %}Создание маршрута{% endblock title %}
+{% block content %}
+    <h1 class="text-center">Создать маршрут</h1>
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <form action="{% url 'save_route' %}" method="POST">
+                {% csrf_token %}
+                {% for field in form %}
+                    <div class="fieldWrapper">
+                        {{ field.errors }}
+                        {{ field }}
+                        {% if field.help_text %}
+                            <p class="help">{{ field.help_text|safe }}</p>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+                <div class="col-md-12 text-center mt-3">
+                    <button type="submit" class="btn btn-primary">Сохранить</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock content %}

@@ -4,6 +4,7 @@ from trains.models import *
 from .models import *
 __all__ = [
     'RouteForm',
+    'RouteModalForm',
 ]
 
 
@@ -30,7 +31,7 @@ class RouteModalForm(forms.ModelForm):
     }))
     from_city = forms.ModelChoiceField(queryset=City.objects.all(), widget=forms.HiddenInput())
     to_city = forms.ModelChoiceField(queryset=City.objects.all(), widget=forms.HiddenInput())
-    trains = forms.ModelMultipleChoiceField(label='Куда', queryset=Train.objects.all(), widget=forms.SelectMultiple(attrs={
+    trains = forms.ModelMultipleChoiceField(label='Поезда', queryset=Train.objects.all(), widget=forms.SelectMultiple(attrs={
         'class': 'form-control d-none',
     }))
     travel_time = forms.IntegerField(widget=forms.HiddenInput())
