@@ -10,6 +10,7 @@ urlpatterns = [
     path('save_route/', save_route, name='save_route'),
     path('cities/', include(('cities.urls', 'cities'))),
     path('trains/', include(('trains.urls', 'trains'))),
+    path('accounts/', include(('accounts.urls', 'accounts'))),
     path('list/', RouteListView.as_view(), name='routes_list'),
     path('detail/<int:pk>/', RouteDetailView.as_view(), name='detail'),
     path('delete/<int:pk>/', RouteDeleteView.as_view(), name='delete'),
